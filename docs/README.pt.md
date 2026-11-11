@@ -2,6 +2,8 @@
 
 Mini leitor nativo para macOS, em SwiftUI e AppKit. Janela translúcida sempre por cima, arrastável, disponível nos vários espaços e como janela auxiliar em ecrã inteiro.
 
+<p align="center"><img src="images/floating-music-screenshot.png" width="728" alt="Widget Floating Music com capa, informação da faixa e controlos do Apple Music"></p>
+
 ## Usar
 
 Descarrega o ZIP em [Releases](https://github.com/cristianoalves92/floating-music/releases), extrai-o e move a app para Aplicações. Se o macOS bloquear a abertura e confiares na origem, segue as [instruções da Apple](https://support.apple.com/en-us/102445) em Definições → Privacidade e Segurança → Abrir mesmo assim. Para compilações locais, abre `build/Floating Music.app`. Na primeira ligação, permite que a app controle Music/Spotify no pedido de Automatização do macOS. Se recusares, altera em Definições do Sistema → Privacidade e Segurança → Automatização.

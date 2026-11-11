@@ -6,6 +6,8 @@ A compact, native floating music player for macOS. Keep Apple Music or Spotify c
 
 [Download the latest release](https://github.com/cristianoalves92/floating-music/releases/latest) · [Português](docs/README.pt.md)
 
+<p align="center"><img src="docs/images/floating-music-screenshot.png" width="728" alt="Floating Music widget showing Apple Music artwork, track information and playback controls"></p>
+
 ## Features
 
 - Album artwork, track title, artist, album and playback progress.
