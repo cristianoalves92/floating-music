@@ -2,7 +2,14 @@
 
 Mini leitor nativo para macOS, em SwiftUI e AppKit. Janela translúcida sempre por cima, arrastável, disponível nos vários espaços e como janela auxiliar em ecrã inteiro.
 
+<p align="center"><img src="images/floating-music-desktop.png" width="960" alt="Floating Music a flutuar sobre o ambiente de trabalho do macOS"></p>
+
+<details>
+<summary>Detalhe dos controlos de reprodução</summary>
+
 <p align="center"><img src="images/floating-music-screenshot.png" width="728" alt="Widget Floating Music com capa, informação da faixa e controlos do Apple Music"></p>
+
+</details>
 
 ## Usar
 
