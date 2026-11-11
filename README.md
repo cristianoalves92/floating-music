@@ -18,7 +18,7 @@ A compact, native floating music player for macOS. Keep Apple Music or Spotify c
 
 ## Install
 
-1. Download `Floating-Music-v1.0.0-universal.zip` from [Releases](https://github.com/cristianoalves92/floating-music/releases).
+1. Download `Floating-Music-v1.0.1-universal.zip` from [Releases](https://github.com/cristianoalves92/floating-music/releases).
 2. Extract it and move **Floating Music.app** to **Applications**.
 3. Open the app. This release is **ad-hoc signed, not Developer ID signed or notarized**. macOS may block its first launch. If you trust the download, follow [Apple’s instructions](https://support.apple.com/en-us/102445): attempt to open it, then go to **System Settings → Privacy & Security → Open Anyway** if that option is offered. Managed Macs may restrict this.
 4. Allow Floating Music to control Music or Spotify when macOS requests Automation access.
@@ -63,4 +63,4 @@ The app icon was generated with ImageGen; the prompt is documented in `Assets/RE
 
 ## License
 
-No open-source license has been selected yet. This repository is publicly viewable, but no general permission to reuse, modify or redistribute its contents is granted at this time.
+[MIT License](LICENSE) — Copyright (c) 2026 Cristiano Alves.

@@ -34,7 +34,7 @@ struct Track {
     var position = 0.0
     var duration = 0.0
     var artwork: NSImage?
-    var key: String { source + title + artist + album }
+    var key: String { [source, title, artist, album].joined(separator: "\u{1F}") }
 }
 
 final class Player: ObservableObject {
@@ -46,6 +46,7 @@ final class Player: ObservableObject {
     private var timer: Timer?
     private var cachedKey = ""
     private var cachedArt: NSImage?
+    private var lastArtworkAttempt = Date.distantPast
     func start() {
         refresh()
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in self?.refresh() }
@@ -90,9 +91,17 @@ final class Player: ObservableObject {
                 candidates.append(t)
             }
             var selected = candidates.first(where: \.playing) ?? candidates.first ?? Track()
-            if selected.key != cachedKey {
+            // Keep the last successful cache through temporary metadata failures.
+            // A new track must never inherit artwork from the previous track.
+            if !selected.source.isEmpty && selected.key != cachedKey {
                 cachedKey = selected.key
                 cachedArt = nil
+                lastArtworkAttempt = .distantPast
+            }
+            // Music may report a new track before its artwork becomes available.
+            // Retry failed/missing artwork without re-downloading successful images.
+            if !selected.source.isEmpty && cachedArt == nil && Date().timeIntervalSince(lastArtworkAttempt) >= 5 {
+                lastArtworkAttempt = Date()
                 if selected.source == "Music" {
                     let (art, _) = script("tell application \"Music\"\ntry\nreturn raw data of artwork 1 of current track\nend try\nend tell")
                     if let art { cachedArt = NSImage(data: art.data) }
@@ -112,7 +121,7 @@ final class Player: ObservableObject {
                     }
                 }
             }
-            selected.artwork = cachedArt
+            selected.artwork = selected.key == cachedKey ? cachedArt : nil
             let finalTrack = selected
             let finalFailure = failure
             DispatchQueue.main.async {
